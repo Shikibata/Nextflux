@@ -7,20 +7,20 @@ import { magic } from "@/lib/magic-client";
 import {
   getAnticipatedMovie,
   getPopularMovie,
-  getPopularShow,
+  getDisneyMovie, getGhibliMovie
 } from "@/lib/tmdbCalls";
 
 export async function getServerSideProps() {
   return {
     props: {
-      popularShow: await getPopularShow(),
       popularMovie: await getPopularMovie(),
       anticipatedMovie: await getAnticipatedMovie(),
+      disneyMovie: await getDisneyMovie(),
+      ghibliMovie: await getGhibliMovie(),
     },
   };
 }
-export default function Home({ popularShow, popularMovie, anticipatedMovie }) {
-  console.log(popularShow);
+export default function Home({popularMovie, anticipatedMovie, disneyMovie, ghibliMovie }) {
   return (
     <>
       <Head>
@@ -37,11 +37,18 @@ export default function Home({ popularShow, popularMovie, anticipatedMovie }) {
           imgUrl="/assets/hero-img.jpg"
         />
         <div className={styles.sectionWrapper}>
-          <SectionCard title="Popular Show" videos={popularShow} size="large" />
           <SectionCard
             title="Popular Movie"
             videos={popularMovie}
             size="large"
+          /><SectionCard
+            title="Disney Movie"
+            videos={disneyMovie}
+            size="medium"
+          /><SectionCard
+            title="Ghibli Movie"
+            videos={ghibliMovie}
+            size="medium"
           />
           <SectionCard
             title="Anticipated Movie"
