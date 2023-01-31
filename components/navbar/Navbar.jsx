@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+;import { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 import { magic } from "@/lib/magic-client";
 
@@ -10,9 +10,18 @@ import { FaArrowDown } from "react-icons/fa";
 const NavBar = (props) => {
   const [username, setUsername] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
-  //const [username, setUsername] = useState("");
   const [didToken, setDidToken] = useState("");
+  const [query, setQuery] = useState("");
+
   const router = useRouter();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    router.push({
+      pathname: "/search",
+      query: { q: query },
+    });
+  };
 
   useEffect(() => {
     async function getUsername() {
@@ -73,6 +82,15 @@ const NavBar = (props) => {
         </Link>
 
         <ul className={styles.navItems}>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Search a movie"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+            />
+            <button type="submit">Search</button>
+          </form>
           <li className={styles.navItem2} onClick={handleOnClickMyList}>
             My List
           </li>

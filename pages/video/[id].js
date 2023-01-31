@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import NavBar from "@/components/navbar/Navbar";
 import Image from "next/image";
+import Link from "next/link";
 
 Modal.setAppElement("#__next");
 
@@ -43,6 +44,7 @@ export default function Video() {
     getCast()
   }, []);
 
+
   console.log(cast)
   return (
     <div className={styles.container}>
@@ -73,6 +75,7 @@ export default function Video() {
             <div className={styles.col2}>
               {cast.slice(0, 12).map((actor) => (
                 <li className={styles.li} key={actor.id}>
+                  <Link href={{ pathname: '/actor', query: {id: actor.id}}}>
                   <Image
                     src={`https://image.tmdb.org/t/p/w500${actor?.profile_path}`}
                     alt={actor.name}
@@ -81,6 +84,7 @@ export default function Video() {
                     sizes="auto"
                     className={styles.cardImg}
                   />
+                    </Link>
                   <div className={styles.actorDiv}><span className={styles.actorName}>{actor.name}</span> <span className={styles.actorAs}>as</span> <span className={styles.actorName}>{actor.character}</span></div>
                 </li>
                 ))}
