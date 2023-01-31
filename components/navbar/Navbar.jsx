@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react'
-import styles from './Navbar.module.css'
+import { useEffect, useState } from "react";
+import styles from "./Navbar.module.css";
 import { magic } from "@/lib/magic-client";
 
-import { useRouter } from 'next/router'
-import Link from 'next/link'
-import Image from 'next/image'
-import { FaArrowDown } from 'react-icons/fa'
+import { useRouter } from "next/router";
+import Link from "next/link";
+import Image from "next/image";
+import { FaArrowDown } from "react-icons/fa";
 
 const NavBar = (props) => {
   const [username, setUsername] = useState("");
-  const [showDropdown, setShowDropdown] = useState(false)
+  const [showDropdown, setShowDropdown] = useState(false);
   //const [username, setUsername] = useState("");
-  const [didToken, setDidToken] = useState('')
-  const router = useRouter()
+  const [didToken, setDidToken] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     async function getUsername() {
@@ -28,21 +28,20 @@ const NavBar = (props) => {
     getUsername();
   }, []);
 
-
   const handleOnClickHome = (e) => {
-    e.preventDefault()
-    router.push('')
-  }
+    e.preventDefault();
+    router.push("");
+  };
 
   const handleOnClickMyList = (e) => {
-    e.preventDefault()
-    router.push('/browse/my-list')
-  }
+    e.preventDefault();
+    router.push("/browse/my-list");
+  };
 
   const handleShowDropdown = (e) => {
-    e.preventDefault()
-    setShowDropdown(!showDropdown)
-  }
+    e.preventDefault();
+    setShowDropdown(!showDropdown);
+  };
 
   const handleSignout = async (e) => {
     e.preventDefault();
@@ -102,7 +101,7 @@ const NavBar = (props) => {
         </nav>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;

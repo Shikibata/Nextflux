@@ -1,10 +1,13 @@
-import styles from './Hero.module.css'
-import { FaHeart, FaPlay } from 'react-icons/fa'
-
+import styles from "./Hero.module.css";
+import { FaHeart, FaPlay } from "react-icons/fa";
+import { useRouter } from "next/router";
 export default function Hero(props) {
-  const { title, subTitle, imgUrl } = props
+  const { title, subTitle, imgUrl } = props;
+  const router = useRouter();
 
-  const HandleOnPlay = () => {}
+  const HandleOnPlay = () => {
+    router.push(`video/${id}`);
+  };
   return (
     <div className={styles.container}>
       <div className={styles.leftWrapper}>
@@ -17,11 +20,11 @@ export default function Hero(props) {
           <h3 className={styles.subtitle}>{subTitle}</h3>
           <div className={styles.playButtonWrapper}>
             <button className={styles.playButton} onClick={HandleOnPlay}>
-              <FaPlay color={'black'} />
+              <FaPlay color={"black"} />
               <span className={styles.playText}>Play</span>
             </button>
             <button className={styles.playButton} onClick={HandleOnPlay}>
-              <FaHeart color={'black'} />
+              <FaHeart color={"black"} />
               <span className={styles.playText}>Wishlist</span>
             </button>
           </div>
@@ -34,5 +37,5 @@ export default function Hero(props) {
         }}
       ></div>
     </div>
-  )
+  );
 }

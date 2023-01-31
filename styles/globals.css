@@ -28,7 +28,7 @@
 }
 
 body {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   background-color: var(--black40);
   color: white;
   overflow-x: hidden;

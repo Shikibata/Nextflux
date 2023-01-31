@@ -5,7 +5,7 @@
   justify-content: flex-start;
   min-height: 100vh;
   background-image: linear-gradient(rgb(0 0 0 / 60%), rgb(0 0 0 / 60%)),
-    url('/assets/signin-bg.jpeg');
+    url("/assets/signin-bg.jpeg");
 }
 
 .header {

@@ -1,15 +1,15 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import {useEffect, useState} from 'react'
-import styles from './Login.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import styles from "./Login.module.css";
 import { useRouter } from "next/router";
-import {magic} from "@/lib/magic-client";
+import { magic } from "@/lib/magic-client";
 
 export default function Index() {
   const router = useRouter();
-  const [email, setEmail] = useState('')
-  const [userMsg, setUserMsg] = useState('')
+  const [email, setEmail] = useState("");
+  const [userMsg, setUserMsg] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -26,24 +26,24 @@ export default function Index() {
   }, [router]);
 
   const handleOnChangeEmail = (e) => {
-    setUserMsg('')
-    console.log('event', e)
-    const email = e.target.value
-    setEmail(email)
-  }
+    setUserMsg("");
+    console.log("event", e);
+    const email = e.target.value;
+    setEmail(email);
+  };
 
   const handleLoginWithEmail = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setIsLoading(true);
 
     if (email) {
-      if (email === 'hloic@outlook.com') {
+      if (email === "hloic@outlook.com") {
         //  login a user by their email
         try {
           const didToken = await magic.auth.loginWithMagicLink({
             email,
-          })
-          console.log({ didToken })
+          });
+          console.log({ didToken });
           if (didToken) {
             setIsLoading(false);
             router.push("/");
@@ -56,7 +56,7 @@ export default function Index() {
       } else {
         // show user message
         setIsLoading(false);
-        setUserMsg('Enter a valid email address')
+        setUserMsg("Enter a valid email address");
       }
     }
   };
@@ -100,5 +100,5 @@ export default function Index() {
         </div>
       </main>
     </div>
-  )
+  );
 }
