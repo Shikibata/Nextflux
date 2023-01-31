@@ -37,9 +37,12 @@
 }
 
 .col1 {
-  max-height: 50vh;
   overflow-y: hidden;
   overflow-y: scroll;
+}
+
+.title {
+  font-size: 2rem;
 }
 
 .publishTime {
@@ -50,10 +53,10 @@
   color: var(--green10);
 }
 
-.text {
+.description {
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: var(--white10);
+  color: var(--gray20);
 }
 
 .description {
@@ -70,6 +73,7 @@
   width: 100%;
   overflow-x: scroll;
   scrollbar-width: none;
+  margin-bottom: 2rem;
 }
 
 
@@ -90,6 +94,25 @@
 
 .li {
   list-style-type: none;
+}
+
+.cardImg {
+  border-radius: 12px;
+}
+
+.actorName {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.actorAs {
+  color: var(--gray20);
+}
+
+.actorDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
   @media(max-width: 1024px) {

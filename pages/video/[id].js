@@ -81,7 +81,7 @@ export default function Video() {
                     sizes="auto"
                     className={styles.cardImg}
                   />
-              {actor.name} as {actor.character}
+                  <div className={styles.actorDiv}><span className={styles.actorName}>{actor.name}</span> <span className={styles.actorAs}>as</span> <span className={styles.actorName}>{actor.character}</span></div>
                 </li>
                 ))}
               {/*
