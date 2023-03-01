@@ -115,3 +115,9 @@
     line-height: 1.75rem;
   }
 }
+
+@media (max-width: 512px) {
+  .nseriesWrapper {
+    padding-top: 2rem;
+  }
+}

@@ -23,10 +23,6 @@ export default function Hero(props) {
               <FaPlay color={"black"} />
               <span className={styles.playText}>Play</span>
             </button>
-            <button className={styles.playButton} onClick={HandleOnPlay}>
-              <FaHeart color={"black"} />
-              <span className={styles.playText}>Wishlist</span>
-            </button>
           </div>
         </div>
       </div>

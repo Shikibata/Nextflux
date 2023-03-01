@@ -5,9 +5,9 @@ import { magic } from "@/lib/magic-client";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-import { FaArrowDown } from "react-icons/fa";
+import { FaArrowDown, FaSearch } from "react-icons/fa";
 
-const NavBar = (props) => {
+export default function NavBar(props)   {
   const [username, setUsername] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const [didToken, setDidToken] = useState("");
@@ -69,7 +69,6 @@ const NavBar = (props) => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <Link className={styles.logoLink} href="/" legacyBehavior>
-          <a>
             <div className={styles.logoWrapper}>
               <Image
                 src="/assets/netflix.svg"
@@ -78,23 +77,22 @@ const NavBar = (props) => {
                 height="32"
               />
             </div>
-          </a>
         </Link>
 
-        <ul className={styles.navItems}>
-          <form onSubmit={handleSubmit}>
+        <div className={styles.navItems}>
+          <div className={styles.searchbar}>
+          <form className={styles.searchContainer} onSubmit={handleSubmit}>
             <input
+              className={styles.searchInput}
               type="text"
               placeholder="Search a movie"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
             />
-            <button type="submit">Search</button>
+            <button className={styles.searchButton} type="submit"><FaSearch/></button>
           </form>
-          <li className={styles.navItem2} onClick={handleOnClickMyList}>
-            My List
-          </li>
-        </ul>
+          </div>
+        </div>
         <nav className={styles.navContainer}>
           <div>
             <button
@@ -122,4 +120,3 @@ const NavBar = (props) => {
   );
 };
 
-export default NavBar;

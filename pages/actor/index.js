@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import styles from "./Actor.module.css";
 import Link from "next/link";
 import Card from "@/components/card/Card";
+import Navbar from "@/components/navbar/Navbar";
 
 export default function Index() {
 
@@ -26,7 +27,8 @@ export default function Index() {
   }, [id]);
 
   return (
-    <div>
+    <div className={styles.container}>
+      <Navbar />
       {movies.map((movie) => (
         <Link href={`/video/${movie.id}`} key={movie.id}>
           <Card
